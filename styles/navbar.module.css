@@ -1,0 +1,65 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  background-color: #781b1b;
+  position: relative;
+  height:60px;
+}
+
+.navSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  border-right: 1px solid white;
+  padding: 15px 0 15px 0;
+  color: white;
+}
+
+.navSection:hover {
+  color: #781b1b;
+  background-color: white;
+}
+
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  text-align: center;
+}
+
+.dropdownButtonsContainer {
+  width: 100%;
+  background-color: #781b1b;
+  position: relative;
+  display: flex;
+  top: 15px;
+  flex-direction: column;
+  animation: dropdownAnimation .3s linear;
+}
+
+.navButton {
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+  position: relative;
+}
+
+@keyframes dropdownAnimation {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dropdownItem {
+  text-decoration: none;
+  padding: 10px 0 10px 0;
+  color: white;
+  width: 100%;
+}
