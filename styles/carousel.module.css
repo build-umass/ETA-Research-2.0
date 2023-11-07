@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+
+.carouselImage {
+    width: 200px;
+    height: 200px;
+}
+
+.overlay {
+    font-size: small;
+}
