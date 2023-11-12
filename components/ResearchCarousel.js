@@ -12,8 +12,8 @@ function ImageWithOverlay({overlayText, imageUrl}) {
     const [showOverlay, setShowOverlay] = useState(false);
     
     return (
-    <>
-        <img src={imageUrl} className={styles.carouselImage}
+    <div 
+        className={styles.imageContainer}
         onMouseEnter={e => {
             e.stopPropagation();
             setShowOverlay(true);
@@ -22,17 +22,20 @@ function ImageWithOverlay({overlayText, imageUrl}) {
             e.stopPropagation();
             setShowOverlay(false);
         }}>
+        
+        <img 
+            src={imageUrl} 
+            className={styles.carouselImage}>
         </img>
 
         {showOverlay && (<div className={styles.overlay}>{overlayText}</div>)}
-    </>
+    </div>
     );
 }
 
 // takes in array with [[overlay text, image url]]
 // TODO: fix css styling for images and button, get rid of scroll bar, make buttons on bottom, put gaps between images
 export function ResearchCarousel({data}) {
-
     return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
             {data.map((textAndUrl, index) => (
@@ -44,7 +47,6 @@ export function ResearchCarousel({data}) {
 
 function LeftArrow() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
     return (
         <button disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
             Left
