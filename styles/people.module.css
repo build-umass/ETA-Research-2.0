@@ -1,0 +1,32 @@
+.tempHeaderImage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+.breadcrumbItem {
+    color: #781b1b;
+}
+
+.teamImage {
+    display: flex;
+    justify-content: center;
+}
+
+.peopleList {
+    color: #781b1b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.peopleTitle {
+    color: #781b1b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.email {
+    color: #781b1b;
+    font-size: 18px;
+    font-weight: 500;
+}

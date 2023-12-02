@@ -8,13 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const Navbar = () => {
   const [people, setPeople] = useState([
-    { name: "Person 1", link: "/person1" },
-    { name: "Person 2", link: "/person2" },
-  ])
-
-  const [papers, setPapers] = useState([
-    { name: "Paper 1", link: "/paper1" },
-    { name: "Paper 2", link: "/paper2" },
+    { name: "Bridgette Davis", link: "/people/Bridgette-Davis" },
+    { name: "Students", link: "/people/students" },
+    { name: "Alumni", link: "/people/alumni" },
   ])
   
   const [ researchDropdownActive, setResearchDropdownActive ] = useState(false)
@@ -52,21 +48,8 @@ export const Navbar = () => {
         <Link href="/" className={styles.navButton}>Home</Link>
       </div>
 
-      <div 
-        className={styles.navSection}
-        onMouseEnter={() => setResearchDropdownActive(true)} 
-        onMouseLeave={() => setResearchDropdownActive(false)}
-      >
-        <div className={styles.dropdownContainer}>
-          <div className={styles.navButton}>Research</div>
-
-          <div className={styles.dropdownButtonsContainer}>
-            {researchDropdownActive && 
-              papers.map((paper) => {
-                return(<Link className={styles.dropdownItem} href={paper.link}>{paper.name}</Link>)
-            })}
-          </div>
-        </div>
+      <div className={styles.navSection}>
+          <Link href="/research" className={styles.navButton}>Research</Link>
       </div>
 
       <div 
@@ -75,7 +58,7 @@ export const Navbar = () => {
         onMouseLeave={() => setPeopleDropdownActive(false)}
       >
         <div className={styles.dropdownContainer}>
-          <div className={styles.navButton}>People</div>
+            <Link href="/people" className={styles.navButton}>People</Link>
 
           <div className={styles.dropdownButtonsContainer}>
             {peopleDropdownActive && 

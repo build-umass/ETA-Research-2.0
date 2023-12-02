@@ -1,0 +1,15 @@
+.tempHeaderImage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+.researchTitle {
+    color: #781b1b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.breadcrumbItem {
+  color: #781b1b;
+}
