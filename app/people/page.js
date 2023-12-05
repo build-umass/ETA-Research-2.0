@@ -5,7 +5,6 @@ import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
-import getData from "services/Contentful.js"
 
 // TODO
 // Error handling
@@ -15,7 +14,6 @@ import Header from "@components/Header"
 const page = () => {
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.js");
-        getData("researchItem").then(console.log).catch(error => new Error(error));
     }, []);
 
     return (

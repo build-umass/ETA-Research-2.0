@@ -1,16 +1,30 @@
 "use client"
+
 import { Navbar } from "@components/Navbar"
 import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Header from "@components/Header"
+import getStudentData from "services/contentfulUtils.js"
 
-const page = () => {
+// set up getStaticProps to load page with data from getStudentData
+page.getInitialProps = async () => {
+  const studentData = await getStudentData();
+  return {
+    props: {
+      studentData
+    }
+  }
+}
+
+// use props from getStaticProps to render page
+export default function page ({studentData}) {
+
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.js");
   }, []);
-  const arrayList = [1, 2, 3, 4];
+  
   return (
     <>
       <Header />
@@ -22,26 +36,28 @@ const page = () => {
                 <li className="breadcrumb-item active" aria-current="page">Students</li>
             </ol>
       </nav>
-      {arrayList.map((student) => (
-        <div key={student} className="container p-5">
-            <div className="row">
-              <div className="col-sm-4">
-                <img src={"/students.jpeg"} width="100%" height="100%"></img>
+      
+      {studentData.map((student) => (
+              <div key={student.fields.studentName} className="container p-5">
+                  <div className="row">
+                    <div className="col-sm-4">
+                      <img src={student.fields.studentHeadshot.file.url} width="100%" height="100%"></img>
+                    </div>
+                    <div className="col-sm-8 ps-5">
+                      <div className={`row ${styles.peopleTitle}`}>
+                        {student.fields.studentName}
+                      </div>
+                      <div className="row pt-3">
+                        {student.fields.studentBio}
+                      </div>
+                      <div className={`row pt-4 ${styles.email}`}>
+                        Email: TEST(AT)TEST.COM
+                      </div>
+                    </div>
+                  </div>
               </div>
-              <div className="col-sm-8 ps-5">
-                <div className={`row ${styles.peopleTitle}`}>
-                  Student {student}
-                </div>
-                <div className="row pt-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris pharetra et ultrices neque ornare aenean. Diam in arcu cursus euismod quis viverra nibh. Cras tincidunt lobortis feugiat vivamus at. Est ultricies integer quis auctor elit sed vulputate semper quis lectus nulla at.
-                </div>
-                <div className={`row pt-4 ${styles.email}`}>
-                  Email: TEST(AT)TEST.COM
-                </div>
-              </div>
-            </div>
-        </div>
-      ))}
+          ))}
+
       <hr></hr>
         <div className="container pb-4">
             <div className="row justify-content">
@@ -57,4 +73,3 @@ const page = () => {
     
   )
 }
-export default page
