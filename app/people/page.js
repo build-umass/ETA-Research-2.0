@@ -4,6 +4,7 @@ import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
+import Header from "@components/Header"
 
 const page = () => {
   useEffect(() => {
@@ -12,9 +13,8 @@ const page = () => {
   return (
     // this page will contain links to external research 
     <>
-        <div className={styles.tempHeaderImage}>
-            <img src={"/temporary-header.png"} width="65%" height="10%"></img>
-        </div>
+        <Header />
+
         <Navbar></Navbar>
         <nav className="pt-3 ps-2" aria-label="breadcrumb">
             <ol className="breadcrumb">
