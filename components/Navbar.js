@@ -16,32 +16,6 @@ export const Navbar = () => {
   const [ researchDropdownActive, setResearchDropdownActive ] = useState(false)
   const [ peopleDropdownActive, setPeopleDropdownActive ] = useState(false)
 
-  const contentfulSpaceId = ""
-  const contentfulApiKey = ""
-  const contentfulApiUrl = `https://cdn.contentful.com/spaces/${contentfulSpaceId}/entries?access_token=${contentfulApiKey}`
-
-  // useEffect(() => {
-  //     // this effect runs on page load and will update the nav bar with the proper pages
-  //     const fetchData = async () => {
-
-  //         await fetch(contentfulApiUrl, {
-  //             method: "GET",
-  //             headers: {
-  //                 "Authorization": `Bearer ${contentfulApiKey}`,
-  //                 "Content-Type": "application/json"
-  //             }
-  //         })
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             setFaculty(data.faculty) // without knowing how contentful manages data, this will have to be updated properly
-  //             setResearch(data.research)
-  //         })
-  //     }
-
-  //     fetchData().catch(console.error)
-
-  // }, [])
-
   return (
     <div className={styles.navbar + " " + inter.className}>
       <div className={styles.navSection}>

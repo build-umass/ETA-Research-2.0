@@ -4,6 +4,7 @@ import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
+import Header from "@components/Header"
 
 const page = () => {
   useEffect(() => {
@@ -12,9 +13,7 @@ const page = () => {
   const arrayList = [1, 2, 3, 4];
   return (
     <>
-      <div className={styles.tempHeaderImage}>
-            <img src={"/temporary-header.png"} width="65%" height="10%"></img>
-      </div>
+      <Header />
       <Navbar></Navbar>
       <nav className="pt-3 ps-2" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -24,7 +23,7 @@ const page = () => {
             </ol>
       </nav>
       {arrayList.map((student) => (
-        <div className="container p-5">
+        <div key={student} className="container p-5">
             <div className="row">
               <div className="col-sm-4">
                 <img src={"/students.jpeg"} width="100%" height="100%"></img>
