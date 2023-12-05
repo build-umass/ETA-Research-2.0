@@ -4,6 +4,7 @@ import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
+import Header from "@components/Header"
 
 const page = () => {
   useEffect(() => {
@@ -11,9 +12,7 @@ const page = () => {
   }, []);
   return (
     <>
-      <div className={styles.tempHeaderImage}>
-            <img src={"/temporary-header.png"} width="65%" height="10%"></img>
-      </div>
+      <Header />
       <Navbar></Navbar>
       <nav className="pt-3 ps-2" aria-label="breadcrumb">
             <ol className="breadcrumb">
@@ -25,7 +24,7 @@ const page = () => {
       <div className="container p-5">
           <div className="row">
             <div className="col-sm-4">
-              <img src={"/bdavis.jpeg"} width="100%" height="100%"></img>
+              <img src={"/BridgetteDavis.jpeg"} width="100%" height="100%"></img>
             </div>
             <div className="col-sm-8 ps-5">
               <div className={`row ${styles.peopleTitle}`}>

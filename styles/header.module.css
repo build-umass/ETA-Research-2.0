@@ -1,0 +1,42 @@
+.headerContainer {
+  display: flex;
+
+}
+
+.headerImageLarge {
+  min-width: 900px;
+  height: 240px;
+}
+
+.headerImageSmall {
+  min-width: 300px;
+  height: 240px;
+
+}
+
+.textContainer {
+  width: 40%;
+  max-width: 600px;
+  min-width: 200px;
+  padding: 20px;
+  min-width: 300px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .headerImageSmall {
+    display: block;
+  }
+  .headerImageLarge {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .headerImageSmall {
+    display: none;
+  }
+  .headerImageLarge {
+    display: block;
+  }
+}

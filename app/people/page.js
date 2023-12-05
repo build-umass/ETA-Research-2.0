@@ -10,6 +10,7 @@ import getData from "services/Contentful.js"
 // TODO
 // Error handling
 // Credentials in .env
+import Header from "@components/Header"
 
 const page = () => {
     useEffect(() => {
@@ -17,14 +18,11 @@ const page = () => {
         getData("researchItem").then(console.log).catch(error => new Error(error));
     }, []);
 
-    console.log()
-
     return (
         // this page will contain links to external research 
         <>
-            <div className={styles.tempHeaderImage}>
-                <img src={"/temporary-header.png"} width="65%" height="10%"></img>
-            </div>
+            <Header />
+
             <Navbar></Navbar>
             <nav className="pt-3 ps-2" aria-label="breadcrumb">
                 <ol className="breadcrumb">
