@@ -5,9 +5,29 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
 
+// TODO
+// Error handling
+// Credentials in .env
+
+const contentful = require('contentful')
+
+export const client = contentful.createClient({
+    space: "72na10vz3n2a",
+    accessToken: "dW-vL_XZ7d0NVV-1XZcwLf5srRlwxN8h71e5W24WLaE"
+})
+
 const page = () => {
+    let data = {};
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.js");
+    try {
+        data = getData().then(console.log).catch((err) => {
+            console.log(err)
+        })
+    }
+    catch(error) {
+        console.log("Error fetching");
+    }
   }, []);
   return (
     // this page will contain links to external research 
@@ -47,3 +67,9 @@ const page = () => {
   )
 }
 export default page
+
+export async function getData(){
+    const response = await client.getEntries({content_type: "researchItem"})
+    const data = response.items
+    return data
+  }
