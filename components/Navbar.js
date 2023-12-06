@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import styles from "@styles/navbar.module.css"
 import { Inter } from 'next/font/google'
@@ -37,7 +37,7 @@ export const Navbar = () => {
           <div className={styles.dropdownButtonsContainer}>
             {peopleDropdownActive && 
               people.map((person) => {
-                return(<Link className={styles.dropdownItem} href={person.link}>{person.name}</Link>)
+                return(<Link key={person.name} className={styles.dropdownItem} href={person.link}>{person.name}</Link>)
             })}
           </div>
         </div>

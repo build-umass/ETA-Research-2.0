@@ -1,5 +1,5 @@
 // Set up contentful client
-import { createClient } from 'contentful';
+import { createClient, getAsset } from 'contentful';
 
 const client = createClient({
     space: "72na10vz3n2a",
@@ -17,7 +17,6 @@ export function getStudentData() {
 
     const studentData = result.then(data => {
         // do error handling here
-        console.log("Data:", data);
         return data;
     });
 
@@ -29,6 +28,24 @@ export function getStudentData() {
 
     
     return studentData;
+}
+
+export function getResearchData() {
+    const result = getData("researchItem");
+
+    const researchData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    researchData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return researchData;
 }
 
 export default getData;

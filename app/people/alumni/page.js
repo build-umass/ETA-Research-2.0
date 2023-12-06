@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect } from "react"
 import Link from "next/link"
 import Header from "@components/Header"
+import Footer from "@components/Footer"
 
 const page = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const page = () => {
       <Header />
       <Navbar></Navbar>
       <nav className="pt-3 ps-2" aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link href="/" className={styles.breadcrumbItem}>Home</Link></li>
                 <li className="breadcrumb-item"><Link href="/people" className={styles.breadcrumbItem}>People</Link></li>
                 <li className="breadcrumb-item active" aria-current="page">Alumni</li>
@@ -26,7 +27,7 @@ const page = () => {
         <div key={alumni} className="container p-5">
             <div className="row">
               <div className="col-sm-4">
-                <img src={"/students.jpeg"} width="100%" height="100%"></img>
+                <img src={"/Students.jpeg"} width="100%" height="100%"></img>
               </div>
               <div className="col-sm-8 ps-5">
                 <div className={`row ${styles.peopleTitle}`}>
@@ -43,16 +44,7 @@ const page = () => {
         </div>
       ))}
       <hr></hr>
-        <div className="container pb-4">
-            <div className="row justify-content">
-                <div className="col-sm-1">
-                    <img src={"/image4.jpg"} width="100%" height="100%"></img>
-                </div>
-                <div className="col-sm-11 text-center pt-4">
-                    Contact / social media / copyright
-                </div>
-            </div>
-        </div>
+      <Footer />
     </>
     
   )

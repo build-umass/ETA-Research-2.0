@@ -12,7 +12,8 @@
   justify-content: center;
   margin: 0;
   border-right: 1px solid white;
-  padding: 15px 0 15px 0;
+  height: 100%;
+  padding-top: 10px;
   color: white;
 }
 
