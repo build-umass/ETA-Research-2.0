@@ -1,0 +1,20 @@
+.tempHeaderImage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+.breadcrumbItem {
+    color: #781b1b;
+}
+
+.teamImage {
+    display: flex;
+    justify-content: center;
+}
+
+.prospectTitle {
+    color: #781b1b;
+    font-size: 20px;
+    font-weight: bold;
+}
