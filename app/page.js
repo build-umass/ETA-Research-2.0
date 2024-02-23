@@ -20,7 +20,7 @@ export default function Home() {
               </div>
             </div>
             <div className="col-sm-4">
-              <img src={"asdfasdf"} width="100%" height="100%"></img>
+              <img src={"/ThompsonHall.jpeg"} width="100%" height="100%"></img>
             </div>
           </div>
         </div>
