@@ -1,3 +1,10 @@
 .spacingDiv {
   padding-top: 60px;
 }
+
+
+.title {
+  color: #781b1b;
+  font-size: 25px;
+  font-weight: bold;
+}
