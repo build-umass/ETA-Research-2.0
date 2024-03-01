@@ -14,6 +14,9 @@ dependencies:
   contentful:
     specifier: ^10.6.14
     version: 10.6.14
+  dotenv:
+    specifier: ^16.4.4
+    version: 16.4.4
   next:
     specifier: 14.0.1
     version: 14.0.1(react-dom@18.0.0)(react@18.0.0)
@@ -222,6 +225,11 @@ packages:
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: false
+
+  /dotenv@16.4.4:
+    resolution: {integrity: sha512-XvPXc8XAQThSjAbY6cQ/9PcBXmFoWuw1sQ3b8HqUCR6ziGXjkTi//kB9SWa2UwqlgdAIuRqAa/9hVljzPehbYg==}
+    engines: {node: '>=12'}
     dev: false
 
   /fast-copy@2.1.7:

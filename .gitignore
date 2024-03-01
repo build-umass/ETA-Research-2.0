@@ -37,3 +37,5 @@ next-env.d.ts
 
 .pnpm-lock.yaml
 README.md
+
+.env
