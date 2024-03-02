@@ -1,10 +1,11 @@
+import styles from '@styles/footer.module.css'
 
 const Footer = () => {
   return (
-    <div className="container pb-4">
+    <div className={styles.footerContainer}>
         <div className="row justify-content">
             <div className="col-sm-1">
-                <img src={"/UMassSeal.jpg"} width="100%" height="100%"></img>
+                <img src={"/umass-seal.svg"} width="80" height="80"></img>
             </div>
             <div className="col-sm-11 text-center pt-4">
                 Contact / social media / copyright

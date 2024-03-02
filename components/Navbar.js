@@ -12,41 +12,17 @@ export const Navbar = () => {
     { name: "Students", link: "/people/students" },
     { name: "Alumni", link: "/people/alumni" },
   ])
-  
-  const [ researchDropdownActive, setResearchDropdownActive ] = useState(false)
   const [ peopleDropdownActive, setPeopleDropdownActive ] = useState(false)
 
   return (
-    <div className={styles.navbar + " " + inter.className}>
-      <div className={styles.navSection}>
-        <Link href="/" className={styles.navButton}>Home</Link>
+    <div className={styles.navbar}>
+      <img src={"/umass-amherst-title.svg"} width="173" height="30" className={styles.title}></img>
+      
+      <div className={styles.links}>
+        <Link href="/" className={styles.navbarLink}>Home</Link>
+        <Link href="/research" className={styles.navbarLink}>Research</Link>
+        <Link href="/people" className={styles.navbarLink}>People</Link>
       </div>
-
-      <div className={styles.navSection}>
-          <Link href="/research" className={styles.navButton}>Research</Link>
-      </div>
-
-      <div 
-        className={styles.navSection}
-        onMouseEnter={() => setPeopleDropdownActive(true)} 
-        onMouseLeave={() => setPeopleDropdownActive(false)}
-      >
-        <div className={styles.dropdownContainer}>
-            <Link href="/people" className={styles.navButton}>People</Link>
-
-          <div className={styles.dropdownButtonsContainer}>
-            {peopleDropdownActive && 
-              people.map((person) => {
-                return(<Link key={person.name} className={styles.dropdownItem} href={person.link}>{person.name}</Link>)
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.navSection}>
-        <Link href="/more" className={styles.navButton}>More</Link>
-      </div>
-
     </div>
   )
 }

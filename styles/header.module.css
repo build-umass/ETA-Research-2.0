@@ -1,6 +1,6 @@
 .headerContainer {
   display: flex;
-
+  margin-top: 10px;
 }
 
 .headerImageLarge {
@@ -23,7 +23,7 @@
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1230px) {
   .headerImageSmall {
     display: block;
   }
@@ -32,11 +32,15 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1230px) {
   .headerImageSmall {
     display: none;
   }
   .headerImageLarge {
     display: block;
+  }
+
+  .headerContainer {
+    width: 1230px;
   }
 }

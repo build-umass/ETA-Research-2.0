@@ -1,5 +1,23 @@
 body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   overflow: overlay;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer {
+  flex: 1 0 auto;
+}
+
+@media screen and (min-width: 1230px) {
+  .mainContainer {
+    width: 1230px;
+    margin: 0 auto;
+  }
+  
 }
