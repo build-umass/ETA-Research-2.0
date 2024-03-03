@@ -20,7 +20,6 @@ export default function Home() {
       <div style={containerStyles}>
         <ImageSlider slides={slides} />
       </div>
-      <Footer />
     </>
   )
 }

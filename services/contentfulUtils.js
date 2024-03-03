@@ -48,4 +48,22 @@ export function getResearchData() {
     return researchData;
 }
 
+export function getMoreInfo() {
+    const result = getData("moreItem");
+
+    const moreInfo = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    moreInfo.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return moreInfo;
+}
+
 export default getData;
