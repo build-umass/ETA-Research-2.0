@@ -20,7 +20,9 @@ const ResearchItem = ({research}) => {
           </div>
         </div>
         <div className="col-sm-4">
-          <img src={research.fields.image.fields.file.url} width="100%" height="100%"></img>
+          <a href={research.fields.link} target='_blank'>
+            <img src={research.fields.image.fields.file.url} width="100%" height="100%"></img>
+          </a>
         </div>
       </div>
     </div>
