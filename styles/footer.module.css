@@ -3,4 +3,11 @@
   flex-shrink: 0;
   padding: 10px;
   height: 100px;
+  color: white;
+}
+
+.navbarLink {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: underline;
 }

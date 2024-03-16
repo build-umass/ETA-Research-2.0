@@ -66,4 +66,22 @@ export function getMoreInfo() {
     return moreInfo;
 }
 
+export function getFooterInfo() {
+    const result = getData("footerItem");
+
+    const footerInfo = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    footerInfo.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return footerInfo;
+}
+
 export default getData;
