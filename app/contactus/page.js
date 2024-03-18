@@ -13,7 +13,7 @@ const page = async () => {
             <nav className="pt-3 ps-2" aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link href="/" className={styles.breadcrumbItem}>Home</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page">More</li>
+                    <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
                 </ol>
             </nav>
 
@@ -53,7 +53,6 @@ const page = async () => {
                     </div>
                 </div>
             </div>
-            <hr></hr>
         </>
         
     )
