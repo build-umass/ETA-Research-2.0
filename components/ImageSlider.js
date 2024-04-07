@@ -1,10 +1,12 @@
 "use client"
 import { useState } from "react";
+import styles from "@styles/imageslider.module.css"
+
 
 const slideStyles = {
   width: "100%",
   height: "100%",
-  borderRadius: "10px",
+  // borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
 };
@@ -18,6 +20,7 @@ const rightArrowStyles = {
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
+  fontSize: "30px",
 };
 
 const leftArrowStyles = {
@@ -29,6 +32,7 @@ const leftArrowStyles = {
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
+  fontSize: "30px",
 };
 
 const sliderStyles = {
@@ -44,8 +48,10 @@ const dotsContainerStyles = {
 const dotStyle = {
   margin: "0 3px",
   cursor: "pointer",
-  fontSize: "20px",
+  fontSize: "10px",
 };
+
+
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,10 +77,10 @@ const ImageSlider = ({ slides }) => {
     <div style={sliderStyles}>
       <div>
         <div onClick={goToPrevious} style={leftArrowStyles}>
-          ❰
+          <div className={styles.arrowLeft}></div>
         </div>
         <div onClick={goToNext} style={rightArrowStyles}>
-          ❱
+          <div className={styles.arrowRight}></div>
         </div>
       </div>
       <div style={slideStylesWidthBackground}></div>
