@@ -12,10 +12,10 @@ const Student = ({student}) => {
   return (
     <div className="container p-5">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-sm-6">
             <img src={student.fields.studentHeadshot?.fields.file.url} width="100%" height="100%"></img>
           </div>
-          <div className="col-sm-8 ps-5">
+          <div className="col-sm-6 ps-5">
             <div className={`row ${styles.peopleTitle}`}>
               {student.fields.studentName}
             </div>
