@@ -3,7 +3,9 @@ import Header from "@components/Header"
 import Footer from "@components/Footer"
 import ImageSlider from "@components/ImageSlider"
 import 'bootstrap/dist/css/bootstrap.css'
+import { getHomeData } from "@services/contentfulUtils"
 
+const homeData = getHomeData()
 export default function Home() {
   const slides = [
     {url: "http://localhost:3000/students.jpeg", title: "Students"},
@@ -17,9 +19,25 @@ export default function Home() {
   return (
     <> 
       <div className={styles.spacingDiv} />
+      <div className="pt-3">
+        <div className="container p-5">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className={`row ${styles.title}`}>
+                {"Title"}
+              </div>
+              <div className="row pe-5 pt-2">
+                {homeData}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.spacingDiv} />
       <div style={containerStyles}>
         <ImageSlider slides={slides} />
       </div>
+      <div className={styles.spacingDiv} />
     </>
   )
 }
