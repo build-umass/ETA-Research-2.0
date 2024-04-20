@@ -8,7 +8,8 @@ import { getHomeData } from "@services/contentfulUtils"
 const homeData = getHomeData()
 export default function Home() {
   const slides = [
-    {url: "http://localhost:3000/students.jpeg", title: "Students"},
+    {url: "http://localhost:3000/thompson_hall_2.jpeg", title: "Thompson2"},
+    {url: "http://localhost:3000/thompson_hall.jpeg", title: "Thompson"},
     {url: "http://localhost:3000/BridgetteTeam.JPEG", title: "Team"}
   ]
   const containerStyles = {
@@ -23,9 +24,6 @@ export default function Home() {
         <div className="container p-5">
           <div className="row">
             <div className="col-sm-12">
-              <div className={`row ${styles.title}`}>
-                {"Title"}
-              </div>
               <div className="row pe-5 pt-2">
                 {homeData}
               </div>
