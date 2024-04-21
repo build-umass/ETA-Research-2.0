@@ -43,7 +43,7 @@ const page = async () => {
                         <div className={`row ${styles.prospectTitle}`}>
                             {morePageContent.title}
                         </div>
-                        <div className="row pt-3">
+                        <div className={styles.descriptionContainer + "row pt-3"}>
                             {morePageContent.description.content.map((moreItem) => (
                                 <>
                                 {moreItem.content[0].value} <br></br>

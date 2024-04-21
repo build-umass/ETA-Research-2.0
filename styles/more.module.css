@@ -18,3 +18,9 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+  .descriptionContainer {
+    margin-left: 20px;
+  } 
+}

@@ -1,32 +1,49 @@
 .tempHeaderImage {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 
 .breadcrumbItem {
-    color: #781b1b;
+  color: #781b1b;
+}
+
+.rowContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .teamImage {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .peopleList {
-    color: #781b1b;
-    font-size: 25px;
-    font-weight: bold;
+  color: #781b1b;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .peopleTitle {
-    color: #781b1b;
-    font-size: 25px;
-    font-weight: bold;
+  color: #781b1b;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .email {
-    color: #781b1b;
-    font-size: 18px;
-    font-weight: 500;
+  color: #781b1b;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bridgetteImageContainer {
+  aspect-ratio: 1/1;
+}
+
+.bridgetteImage {
+  width: 100%;
+  height: auto;
+  display: block;
 }

@@ -19,9 +19,9 @@ const ResearchItem = ({research}) => {
             {research.fields.description.content[0].content[0].value}
           </div>
         </div>
-        <div className="col-sm-4">
+        <div className={styles.researchImageContainer + " col-sm-4"}>
           <a href={research.fields.link} target='_blank'>
-            <img src={research.fields.image.fields.file.url} width="100%" height="100%"></img>
+            <img className={styles.researchImage} src={research.fields.image.fields.file.url} width="100%" height="100%"></img>
           </a>
         </div>
       </div>

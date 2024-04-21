@@ -1,15 +1,25 @@
 .tempHeaderImage {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 
 .researchTitle {
-    color: #781b1b;
-    font-size: 25px;
-    font-weight: bold;
+  color: #781b1b;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .breadcrumbItem {
   color: #781b1b;
+}
+
+.researchImageContainer {
+  aspect-ratio: 1/1;
+}
+
+.researchImage {
+  width: 100%;
+  height: auto;
+  display: block;
 }

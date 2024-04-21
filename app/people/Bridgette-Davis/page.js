@@ -16,9 +16,9 @@ const page = () => {
       </nav>
       
       <div className="container p-5">
-        <div className="row">
-          <div className="col-sm-4">
-            <img src={"/BridgetteDavis.jpeg"} width="100%" height="100%"></img>
+        <div className={styles.rowContainer}>
+          <div className={"col-sm-4" + styles.bridgetteImageContainer}>
+            <img classname={styles.bridgetteImage} src={"/BridgetteDavis.jpeg"}></img>
           </div>
           <div className="col-sm-8 ps-5">
             <div className={`row ${styles.peopleTitle}`}>
