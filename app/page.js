@@ -20,7 +20,6 @@ export default function Home() {
     justifyContent: "space-between",
     flexDirection: "row-reverse",
     width: "100%",
-    padding: "10px 20px",
   };
 
   const textContainerStyles = {
