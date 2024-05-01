@@ -131,19 +131,19 @@ function formatEmail(email) {
 export function getHomeData() {
     const result = getData("homeItem");
 
-    const studentData = result.then(data => {
+    const homeData = result.then(data => {
         // do error handling here
         return data;
     });
 
     // if there is an error, it will be caught here
-    studentData.catch(err => {
+    homeData.catch(err => {
         console.error("An error occurred:", err);
         throw err;
     });
 
     
-    return studentData;
+    return homeData;
 }
 
 export default getData;
