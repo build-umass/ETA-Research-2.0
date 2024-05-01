@@ -13,3 +13,59 @@
 .breadcrumbItem {
   color: #781b1b;
 }
+
+.eventContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.dateCard {
+  width: 75px;
+  height: 75px;
+  background-color: #000; /* Black background color */
+  color: white; /* White text color */
+  text-align: center;
+  font-size: 24px; /* Large font size */
+  font-weight: bold; /* Bold text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+}
+
+.dateText {
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.monthText {
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.eventDetails {
+  flex: 1;
+  margin-left: 10px; /* Add margin between date card and event details */
+}
+
+.eventTitle {
+  color: black; /* White event title text color */
+}
+
+.eventInfo {
+  margin-top: 5px; /* Reduce margin between event info */
+  margin-bottom: 5px; /* Reduce margin between event info */
+}
+
+@media (max-width: 575px) {
+  .eventDetails {
+    width: calc(100% - 75px); /* Width of container minus width of date card */
+  }
+}
+
+
+
+
+
+
+
+
