@@ -8,9 +8,7 @@ import parse from 'html-react-parser'
 
 
 const facultyData = await getFacultyData();
-console.log("facultyData", facultyData);
 const richTextHtmlString = documentToHtmlString(facultyData[0].fields.facultyBio); // renders rich text (bold, italics, etc) in html
-console.log("facultyData", facultyData);
 
 
 const faculty = facultyData.map((faculty) => {
