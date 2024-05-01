@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Link from "next/link"
 import ResearchList from "@components/ResearchList"
 
-const page = () => {
+const page = async () => {
   return (
     <>
       <nav className="pt-3 ps-2" aria-label="breadcrumb">
