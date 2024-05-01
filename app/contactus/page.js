@@ -2,11 +2,22 @@ import styles from "@styles/more.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Link from "next/link"
 import { getMoreInfo } from '@services/contentfulUtils'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import parse from 'html-react-parser'
+
+
+
+
 
 const page = async () => {
 
     const moreInfo = await getMoreInfo()
     const morePageContent = moreInfo[0].fields
+
+
+    const descriptionRichTextHtmlString = documentToHtmlString(morePageContent.description); // renders rich text (bold, italics, etc) in html
+    const contactDescriptionRichTextHtmlString = documentToHtmlString(morePageContent.contactDescription); 
+
 
     return (
         <>
@@ -30,11 +41,7 @@ const page = async () => {
                         <br></br>
                         <strong>
                         <div className="row">
-                            {morePageContent.contactDescription.content.map((moreItem) => (
-                                <>
-                                {moreItem.content[0].value} <br></br>
-                                </>
-                            ))}
+                            {parse(contactDescriptionRichTextHtmlString)}
                         </div>
                         </strong>
                         <br></br>
@@ -44,11 +51,7 @@ const page = async () => {
                             {morePageContent.title}
                         </div>
                         <div className="row pt-3">
-                            {morePageContent.description.content.map((moreItem) => (
-                                <>
-                                {moreItem.content[0].value} <br></br>
-                                </>
-                            ))}
+                            {parse(descriptionRichTextHtmlString)}
                         </div>
                     </div>
                 </div>
