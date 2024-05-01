@@ -7,27 +7,28 @@ import parse from 'html-react-parser'
 
 
 
-const facultyData = await getFacultyData();
-const richTextHtmlString = documentToHtmlString(facultyData[0].fields.facultyBio); // renders rich text (bold, italics, etc) in html
-
-
-const faculty = facultyData.map((faculty) => {
-  return {
-    name: faculty.fields.facultyName,
-    email: faculty.fields.facultyEmail,
-    image: faculty.fields.facultyHeadshot.fields.file.url,
-    description: richTextHtmlString,        // rich text
-    isAlumni: faculty.fields.isAlumni       // possible idea if ever more than 1 faculty
-  };
-})[0];
 
 
 
 
 
 
-const page = () => {
 
+const page = async () => {
+
+  const facultyData = await getFacultyData();
+  const richTextHtmlString = documentToHtmlString(facultyData[0].fields.facultyBio); // renders rich text (bold, italics, etc) in html
+
+
+  const faculty = facultyData.map((faculty) => {
+    return {
+      name: faculty.fields.facultyName,
+      email: faculty.fields.facultyEmail,
+      image: faculty.fields.facultyHeadshot.fields.file.url,
+      description: richTextHtmlString,        // rich text
+      isAlumni: faculty.fields.isAlumni       // possible idea if ever more than 1 faculty
+    };
+  })[0];
   
   return (
     <>
