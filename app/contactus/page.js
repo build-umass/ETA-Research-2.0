@@ -1,12 +1,17 @@
 import styles from "@styles/more.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Link from "next/link"
-import { getMoreInfo } from '@services/contentfulUtils'
+import { getMoreInfo, renderOptions } from '@services/contentfulUtils'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+
+
 
 const page = async () => {
 
     const moreInfo = await getMoreInfo()
     const morePageContent = moreInfo[0].fields
+
 
     return (
         <>
@@ -30,11 +35,7 @@ const page = async () => {
                         <br></br>
                         <strong>
                         <div className="row">
-                            {morePageContent.contactDescription.content.map((moreItem) => (
-                                <>
-                                {moreItem.content[0].value} <br></br>
-                                </>
-                            ))}
+                            { documentToReactComponents(morePageContent.contactDescription, renderOptions) }
                         </div>
                         </strong>
                         <br></br>
@@ -44,11 +45,7 @@ const page = async () => {
                             {morePageContent.title}
                         </div>
                         <div className="row pt-3">
-                            {morePageContent.description.content.map((moreItem) => (
-                                <>
-                                {moreItem.content[0].value} <br></br>
-                                </>
-                            ))}
+                            { documentToReactComponents(morePageContent.description, renderOptions) }
                         </div>
                     </div>
                 </div>

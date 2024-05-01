@@ -1,5 +1,6 @@
 // Set up contentful client
 import { createClient, getAsset } from 'contentful';
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 const client = createClient({
     space: "72na10vz3n2a",
@@ -163,3 +164,45 @@ export function getHomeSlidesData() {
     
     return homeData;
 }
+
+// options for rendering embedded content in rich text
+// https://www.contentful.com/blog/rendering-linked-assets-entries-in-contentful/
+export const renderOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+        if (node.data.target.sys.contentType.sys.id === "codeBlock") {
+          return (
+            <pre>
+              <code>{node.data.target.fields.code}</code>
+            </pre>
+          );
+        }
+  
+        if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
+          return (
+            <iframe
+              src={node.data.target.fields.embedUrl}
+              height="100%"
+              width="100%"
+              frameBorder="0"
+              scrolling="no"
+              title={node.data.target.fields.title}
+              allowFullScreen={true}
+            />
+          );
+        }
+      },
+  
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+        return (
+          <img
+            src={`https://${node.data.target.fields.file.url}`}
+            height="100%"
+            width="100%"
+            alt={node.data.target.fields.description}
+          />
+        );
+      },
+    },
+  };
+

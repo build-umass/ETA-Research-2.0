@@ -4,17 +4,16 @@ import Footer from "@components/Footer";
 import ImageSlider from "@components/ImageSlider";
 import 'bootstrap/dist/css/bootstrap.css';
 import { getHomeData, getHomeSlidesData } from "@services/contentfulUtils";
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import parse from 'html-react-parser'
-
-
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { renderOptions } from "@services/contentfulUtils";
 
 
 
 
 export default async function Home() {
   const homeData = await getHomeData();
-  const richTextHtmlString = documentToHtmlString(homeData[0].fields.textBox); // renders rich text (bold, italics, etc) in html
+
+
 
   const homeSlidesData = await getHomeSlidesData();
   const slides = homeSlidesData.map((slide) => {
@@ -55,7 +54,7 @@ export default async function Home() {
               <div className="row">
                 <div className="col-sm-12">
                   <div className="row pe-5 pt-2">
-                    {parse(richTextHtmlString)}
+                    {documentToReactComponents(homeData[0].fields.textBox, renderOptions)}
                   </div>
                 </div>
               </div>

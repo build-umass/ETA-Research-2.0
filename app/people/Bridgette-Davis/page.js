@@ -2,13 +2,8 @@ import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Link from "next/link"
 import { getFacultyData, formatEmail} from "@services/contentfulUtils"
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import parse from 'html-react-parser'
-
-
-
-
-
+import { renderOptions } from "@services/contentfulUtils"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 
 
@@ -17,7 +12,7 @@ import parse from 'html-react-parser'
 const page = async () => {
 
   const facultyData = await getFacultyData();
-  const richTextHtmlString = documentToHtmlString(facultyData[0].fields.facultyBio); // renders rich text (bold, italics, etc) in html
+  // const richTextHtmlString = documentToHtmlString(facultyData[0].fields.facultyBio); // renders rich text (bold, italics, etc) in html
 
 
   const faculty = facultyData.map((faculty) => {
@@ -25,7 +20,7 @@ const page = async () => {
       name: faculty.fields.facultyName,
       email: faculty.fields.facultyEmail,
       image: faculty.fields.facultyHeadshot.fields.file.url,
-      description: richTextHtmlString,        // rich text
+      description: documentToReactComponents(facultyData[0].fields.facultyBio, renderOptions),       // rich text as react components
       isAlumni: faculty.fields.isAlumni       // possible idea if ever more than 1 faculty
     };
   })[0];
@@ -43,14 +38,17 @@ const page = async () => {
       <div className="container p-5">
         <div className="row">
           <div className="col-sm-4">
-            <img src={faculty.image} width="100%" height="100%"></img>
+            <img src={faculty.image} 
+              className="img-fluid"
+              style={{ width: '100%', height: 'auto' }}
+              ></img>
           </div>
           <div className="col-sm-8 ps-5">
             <div className={`row ${styles.peopleTitle}`}>
               {faculty.name}
             </div>
             <div className="row pt-3">
-              {parse(faculty.description)}
+              {faculty.description}
             </div>
             <div className={`row pt-4 ${styles.email}`}>
               { formatEmail(faculty.email) }
@@ -64,4 +62,5 @@ const page = async () => {
 
   )
 }
+
 export default page
