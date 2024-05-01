@@ -120,7 +120,7 @@ export function getHeaderInfo() {
     return headerInfo;
 }
 
-function formatEmail(email) {
+export function formatEmail(email) {
     if (email === null || email === undefined) {
       return null
     }
@@ -163,5 +163,3 @@ export function getHomeSlidesData() {
     
     return homeData;
 }
-
-export default getData;

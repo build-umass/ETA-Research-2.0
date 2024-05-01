@@ -1,6 +1,6 @@
 import styles from "@styles/people.module.css"
 import 'bootstrap/dist/css/bootstrap.css'
-import { getStudentData } from '@services/contentfulUtils';
+import { formatEmail, getStudentData, getFacultyData } from '@services/contentfulUtils';
 import Link from "next/link"
 
 // TODO
@@ -10,6 +10,15 @@ import Link from "next/link"
 const page = async () => {
   // Fetch student data
   const studentData = await getStudentData();
+  const facultyData = await getFacultyData();
+  // const faculty = facultyData.map((faculty) => (
+  //   {
+  //     name: faculty.fields.facultyName,
+  //     email: faculty.fields.facultyEmail,   
+  //   }
+  // ))[0];
+  const facultyEmail = facultyData[0].fields.facultyEmail;
+
   return (
     <>
 
@@ -34,7 +43,7 @@ const page = async () => {
                 Bridgette Davis
               </div>
               <div className={`row pt-4 ${styles.email}`}>
-                Email: test@test.com
+                {formatEmail(facultyEmail)}
               </div>
             </div>
           </div>

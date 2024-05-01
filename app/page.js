@@ -9,16 +9,14 @@ import parse from 'html-react-parser'
 
 
 
-const homeData = await getHomeData();
-const richTextHtmlString = documentToHtmlString(homeData[0].fields.textBox); // renders rich text (bold, italics, etc) in html
-
-const homeSlidesData = await getHomeSlidesData();
 
 
 
-export default function Home() {
+export default async function Home() {
+  const homeData = await getHomeData();
+  const richTextHtmlString = documentToHtmlString(homeData[0].fields.textBox); // renders rich text (bold, italics, etc) in html
 
-
+  const homeSlidesData = await getHomeSlidesData();
   const slides = homeSlidesData.map((slide) => {
     return {
       url: slide.fields.slideImage.fields.file.url,
