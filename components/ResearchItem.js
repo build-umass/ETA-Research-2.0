@@ -1,12 +1,17 @@
 "use client"
 import { useEffect } from 'react'
 import styles from "@styles/research.module.css"
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import parse from 'html-react-parser'
 
 const ResearchItem = ({research}) => {
 
   useEffect(() => {
     import ("bootstrap/dist/js/bootstrap.bundle.js")
   })
+
+  const richTextHtmlString = documentToHtmlString(research.fields.description); // renders rich text (bold, italics, etc) in html
+
 
   return (
     <div className="container p-5">
@@ -16,7 +21,7 @@ const ResearchItem = ({research}) => {
             {research.fields.title}
           </div>
           <div className="row pe-5 pt-2">
-            {research.fields.description.content[0].content[0].value}
+            {parse(richTextHtmlString)}
           </div>
         </div>
         <div className="col-sm-4">
