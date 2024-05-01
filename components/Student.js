@@ -3,6 +3,15 @@ import { useEffect } from 'react'
 import styles from "@styles/people.module.css"
 
 
+function formatEmail(email) {
+  
+  if (email === null || email === undefined) {
+    return null
+  }
+  // Email: TEST(AT)TEST.COM
+  return "Email: " + email.toUpperCase().split('@').join('(AT)')
+}
+
 const Student = ({student}) => {
 
   useEffect(() => {
@@ -23,7 +32,7 @@ const Student = ({student}) => {
               {student.fields.studentBio}
             </div>
             <div className={`row pt-4 ${styles.email}`}>
-              Email: TEST(AT)TEST.COM
+              {formatEmail(student.fields?.studentEmail)}
             </div>
           </div>
         </div>

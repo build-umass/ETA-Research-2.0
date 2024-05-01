@@ -3,16 +3,28 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import ImageSlider from "@components/ImageSlider";
 import 'bootstrap/dist/css/bootstrap.css';
-import { getHomeData } from "@services/contentfulUtils";
+import { getHomeData, getHomeSlidesData } from "@services/contentfulUtils";
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import parse from 'html-react-parser'
 
-const homeData = getHomeData();
+
+
+const homeData = await getHomeData();
+const richTextHtmlString = documentToHtmlString(homeData[0].fields.textBox); // renders rich text (bold, italics, etc) in html
+
+const homeSlidesData = await getHomeSlidesData();
+
+
 
 export default function Home() {
-  const slides = [
-    { url: "http://localhost:3000/thompson_hall_2.jpeg", title: "Thompson2" },
-    { url: "http://localhost:3000/thompson_hall.jpeg", title: "Thompson" },
-    { url: "http://localhost:3000/BridgetteTeam.JPEG", title: "Team" }
-  ];
+
+
+  const slides = homeSlidesData.map((slide) => {
+    return {
+      url: slide.fields.slideImage.fields.file.url,
+      title: slide.fields.alternativeText,
+    };
+  });
 
   const containerStyles = {
     display: "flex",
@@ -45,7 +57,7 @@ export default function Home() {
               <div className="row">
                 <div className="col-sm-12">
                   <div className="row pe-5 pt-2">
-                    {homeData}
+                    {parse(richTextHtmlString)}
                   </div>
                 </div>
               </div>

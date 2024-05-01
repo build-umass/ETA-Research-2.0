@@ -30,6 +30,24 @@ export function getStudentData() {
     return studentData;
 }
 
+export function getFacultyData() {
+    const result = getData("facultyItem");
+
+    const facultyData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    facultyData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return facultyData;
+}
+
 export function getResearchData() {
     const result = getData("researchItem");
 
@@ -84,8 +102,66 @@ export function getFooterInfo() {
     return footerInfo;
 }
 
+export function getHeaderInfo() {
+    const result = getData("headerItem");
+
+    const headerInfo = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    headerInfo.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return headerInfo;
+}
+
+function formatEmail(email) {
+    if (email === null || email === undefined) {
+      return null
+    }
+    // Email: TEST(AT)TEST.COM
+    return "Email: " + email.toUpperCase().split('@').join('(AT)')
+}
+
 export function getHomeData() {
-    return "We study the effects of state, institutional, and organizational policy, programs, and practices on young people as they transition to adulthood. We contribute to efforts to invest in infrastructure that supports equity for all young adults during this crucial time of personal, intellectual, and socio-political development. We partner with young people as well as interdisciplinary scholars, institutions, non-profits, and programs to ask critical and innovative questions informed by those seeking opportunities to work with young adult-led organizations and invite young adult voices to lead so that our lab embodies the practices we promote. Our work is motivated by our belief that young adults’ contributions are critical to solving an interlocking set of global crises. We are currently conducting qualitative studies in the Chicago region and Western Massachusetts that focus on marginalized students’ attempt to pursue equitable access to a college education."
+    const result = getData("homeItem");
+
+    const homeData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    homeData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return homeData;
+}
+
+export function getHomeSlidesData() {
+    const result = getData("homePageCarouselSlide");
+
+    const homeData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    homeData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return homeData;
 }
 
 export default getData;
