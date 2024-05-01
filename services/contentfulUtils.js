@@ -128,4 +128,22 @@ function formatEmail(email) {
     return "Email: " + email.toUpperCase().split('@').join('(AT)')
 }
 
+export function getHomeData() {
+    const result = getData("homeItem");
+
+    const studentData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    studentData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return studentData;
+}
+
 export default getData;
