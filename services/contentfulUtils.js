@@ -146,4 +146,22 @@ export function getHomeData() {
     return homeData;
 }
 
+export function getHomeSlidesData() {
+    const result = getData("homePageCarouselSlide");
+
+    const homeData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    homeData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return homeData;
+}
+
 export default getData;
