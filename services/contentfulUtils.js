@@ -30,6 +30,24 @@ export function getStudentData() {
     return studentData;
 }
 
+export function getFacultyData() {
+    const result = getData("facultyItem");
+
+    const facultyData = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    facultyData.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return facultyData;
+}
+
 export function getResearchData() {
     const result = getData("researchItem");
 
@@ -82,6 +100,32 @@ export function getFooterInfo() {
 
     
     return footerInfo;
+}
+
+export function getHeaderInfo() {
+    const result = getData("headerItem");
+
+    const headerInfo = result.then(data => {
+        // do error handling here
+        return data;
+    });
+
+    // if there is an error, it will be caught here
+    headerInfo.catch(err => {
+        console.error("An error occurred:", err);
+        throw err;
+    });
+
+    
+    return headerInfo;
+}
+
+function formatEmail(email) {
+    if (email === null || email === undefined) {
+      return null
+    }
+    // Email: TEST(AT)TEST.COM
+    return "Email: " + email.toUpperCase().split('@').join('(AT)')
 }
 
 export default getData;
